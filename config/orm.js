@@ -37,10 +37,18 @@ function toSql(obj) {
 }
 
 var orm = {
-	selectAll: function() {
-		// selects all items in database
+	// selects all items in database
+	selectAll: function(table, cb) {
 		// define queryString variable as one that selects all rows from table
+		var queryString = "SELECT * FROM " + table;
+
 		// connect to database
+		connection.query(queryString, function(err, res) {
+			if (err) {
+				throw err;
+			}
+			cb(res);
+		});
 	},
 
 	insertOne: function() {
