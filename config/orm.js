@@ -51,11 +51,28 @@ var orm = {
 		});
 	},
 
-	insertOne: function() {
-		// inserts a single entry into database
+	// inserts a single entry into database
+	insertOne: function(table, cols, vals, cb) {
 		// define queryString variable as one that builds a query to create a table row
+		var queryString = "INSERT INTO " + table;
+
 		// build query string
+
+		queryString += " (";
+		queryString += cols.toString();
+		queryString += ") ";
+		queryString += "VALUES (";
+		queryString += printQuestionMarks(vals.length);
+		queryString += ") ";
+
 		// connect to database
+
+		connection.query(queryString, vals, function(err, result) {
+			if (err) {
+				throw err;
+			}
+			cb(result);
+		});
 	},
 
 	updateOne: function() {
