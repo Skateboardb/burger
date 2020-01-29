@@ -67,19 +67,33 @@ var orm = {
 
 		// connect to database
 
-		connection.query(queryString, vals, function(err, result) {
+		connection.query(queryString, vals, function(err, res) {
 			if (err) {
 				throw err;
 			}
-			cb(result);
+			cb(res);
 		});
 	},
 
-	updateOne: function() {
-		// updates a single entry in database
+	// updates a single entry in database
+	updateOne: function(table, colVals, condition, cb) {
 		// define queryString variable as one that builds a query to update a table row
+		var queryString = "UPDATE " + table;
+
 		// build query string
+		queryString += " SET ";
+		queryString += toSql(colVals);
+		queryString += " WHERE ";
+		queryString += condition;
+
 		// connect to database
+		connection.query(queryString, function(err, res) {
+			if (err) {
+				throw err;
+			}
+
+			cb(res);
+		});
 	},
 	delete: function() {
 		// deletes entry
