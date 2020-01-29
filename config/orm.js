@@ -95,11 +95,24 @@ var orm = {
 			cb(res);
 		});
 	},
-	delete: function() {
-		// deletes entry
+
+	// deletes entry
+	delete: function(table, condition, cb) {
 		// define queryString variable as one that builds a query to delete a table row
+		var queryString = "DELETE FROM " + table;
+
 		// build query string
+		queryString += " WHERE ";
+		queryString += condition;
+
 		// connect to database
+		connection.query(queryString, function(err, res) {
+			if (err) {
+				throw err;
+			}
+
+			cb(res);
+		});
 	}
 };
 
