@@ -21,6 +21,7 @@ $(function() {
 			$("[name=burger-name]").val("");
 		}
 	});
+
 	$(".devour-burger").on("click", function(event) {
 		var id = $(this).data("id");
 
@@ -34,6 +35,17 @@ $(function() {
 			data: newState
 		}).then(function() {
 			// console.log("changed devour to", true);
+			// Reload the page to get the updated list
+			location.reload();
+		});
+	});
+
+	$(".delete-sleep").on("click", function(event) {
+		var id = $(this).data("id");
+
+		$.ajax("/api/burgers/" + id, {
+			type: "DELETE"
+		}).then(function() {
 			// Reload the page to get the updated list
 			location.reload();
 		});
