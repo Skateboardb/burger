@@ -58,3 +58,9 @@ td {
 	margin-top: 50px;
 	text-align: center;
 }
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	color: grey;
+}
