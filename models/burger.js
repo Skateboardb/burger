@@ -24,13 +24,13 @@ var burger = {
 		orm.updateOne("burgers", colVals, condition, function(res) {
 			cb(res);
 		});
-	},
-
-	delete: function(condition, cb) {
-		orm.deleteOne("burgers", condition, function(res) {
-			cb(res);
-		});
 	}
+
+	// delete: function(condition, cb) {
+	// 	orm.deleteOne("burgers", condition, function(res) {
+	// 		cb(res);
+	// 	});
+	// }
 };
 
 // export functions for controller

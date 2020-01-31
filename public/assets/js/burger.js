@@ -40,14 +40,14 @@ $(function() {
 		});
 	});
 
-	$(".delete-sleep").on("click", function(event) {
-		var id = $(this).data("id");
+	// $("#delete-all").on("click", function(event) {
+	// 	event.preventDefault();
 
-		$.ajax("/api/burgers/" + id, {
-			type: "DELETE"
-		}).then(function() {
-			// Reload the page to get the updated list
-			location.reload();
-		});
-	});
+	// 	$.ajax("/api/burgers/", {
+	// 		type: "DELETE"
+	// 	}).then(function(data) {
+	// 		// Reload the page to get the updated list
+	// 		location.reload();
+	// 	});
+	// });
 });
