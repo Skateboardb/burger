@@ -2,7 +2,7 @@
 
 ## Overview
 
-This here is a burger logger crafted using MySQL, Node, Express, and Handlebars, following the MVC design pattern.
+This burger logger was hand-crafted using MySQL, Node, Express, and Handlebars, following the MVC design pattern.
 
 ![Image](public/assets/img/king-burger.png)
 
